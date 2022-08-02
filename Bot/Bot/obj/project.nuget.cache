@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ozYEl5//p18/xjnJDMiEqelK43ZWBJlCKBM9MhfcRQNIJepQrVQa74Yu5FspBa0qyKOPMUAT+1XYx5oZMMA4vg==",
+  "dgSpecHash": "MxlKmVAPlSsbKIMKdsZKHMfI/NVjDeZyvaRJdAz/WJKlLK0WMJzjFfgO0zpGVOhYjrU9mcCZRQB58WcmMew7pg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\esto0\\Documents\\TBot\\Bot\\Bot\\Bot.csproj",
+  "projectFilePath": "C:\\Users\\esto0\\Documents\\TelBot\\Bot\\Bot\\Bot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\esto0\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\esto0\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512",

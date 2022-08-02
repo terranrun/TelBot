@@ -157,11 +157,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\esto0\\Documents\\TBot\\Bot\\Bot\\Bot.csproj",
+      "projectUniqueName": "C:\\Users\\esto0\\Documents\\TelBot\\Bot\\Bot\\Bot.csproj",
       "projectName": "Bot",
-      "projectPath": "C:\\Users\\esto0\\Documents\\TBot\\Bot\\Bot\\Bot.csproj",
+      "projectPath": "C:\\Users\\esto0\\Documents\\TelBot\\Bot\\Bot\\Bot.csproj",
       "packagesPath": "C:\\Users\\esto0\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\esto0\\Documents\\TBot\\Bot\\Bot\\obj\\",
+      "outputPath": "C:\\Users\\esto0\\Documents\\TelBot\\Bot\\Bot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\esto0\\AppData\\Roaming\\NuGet\\NuGet.Config",
