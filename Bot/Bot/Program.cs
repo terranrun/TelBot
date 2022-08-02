@@ -46,7 +46,7 @@ namespace Bot
             using (var cts = new CancellationTokenSource())
             {
 
-                Bot = new TelegramBotClient("5443238189:AAHCc7Znl3DRpKEgbR3UBWU1RgCOvaH8eq0");
+                Bot = new TelegramBotClient("");
                 var me = await Bot.GetMeAsync();
 
                 Console.WriteLine($"name is{me.Username}");
