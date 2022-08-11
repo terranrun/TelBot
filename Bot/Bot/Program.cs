@@ -33,7 +33,6 @@ namespace Bot
 
         static Employee employee = new Employee();
 
-        // private static CancellationToken HandlerErrorAsync;
         const string COMMAND_LIST =
 @"Список команд:
 /getInfo - получаем информацию о датах отпуска
@@ -41,30 +40,26 @@ namespace Bot
 (имя дата количество дней) 
 ";
 
-        private static async Task Main()
+        private static void Main()
         {
-            using (var cts = new CancellationTokenSource())
-            {
-
-                Bot = new TelegramBotClient("");
-                var me = await Bot.GetMeAsync();
-
-                Console.WriteLine($"name is{me.Username}");
-                Bot.StartReceiving(HandlerUpdateAsync, HandlerErrorAsync,
-                 new ReceiverOptions
-                 {
-                     AllowedUpdates = Array.Empty<UpdateType>()
-                 },
-                 cts.Token);
-
-                Console.ReadLine();
-                cts.Cancel();
-            }
+            var cts = new CancellationTokenSource(); //?
+                   
+            Bot = new TelegramBotClient("5443238189:AAHCc7Znl3DRpKEgbR3UBWU1RgCOvaH8eq0");  
+            Bot.StartReceiving(HandlerUpdateAsync, HandlerErrorAsync,
+             new ReceiverOptions
+             {
+                 AllowedUpdates = Array.Empty<UpdateType>()
+             },
+             cts.Token);
+            
+            Console.ReadLine();
+            cts.Cancel();
+            
 
         }
 
 
-        private static Task HandlerErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken token)
+        private static Task HandlerErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken token)//?
         {
             Console.WriteLine(exception);
             return Task.CompletedTask;
@@ -93,6 +88,7 @@ namespace Bot
 
         private static async Task BotOnMessageReceived(ITelegramBotClient botClient, Message? message)
         {
+            
             Console.WriteLine($"receive mes type{message.Type}");
             if (message.Type != MessageType.Text)
                 return;
@@ -111,7 +107,9 @@ namespace Bot
                     text = employee.InfoEmployeeWeekend(msgArgs);
                     break;
                 case "/change":
+
                     text = ChangeEmployee(msgArgs);
+
                     break;
 
                 default:
@@ -138,7 +136,7 @@ namespace Bot
             {
                 await botClient.SendTextMessageAsync(
                     callbackQuery.Message.Chat.Id,
-                    $"Вы хотите продать?"
+                    $"вы хотите изменить дату отпуска?"
                 );
                 return;
             }
@@ -151,7 +149,9 @@ namespace Bot
 
         private static async Task LoadMenu(ITelegramBotClient botClient, Message message)
         {
-            InlineKeyboardMarkup inlineKeyboard = new(new[]
+            Random r = new Random();
+            Random r1 = new();
+            var f = new[]
             {
                     // first row
                     new[]
@@ -160,7 +160,10 @@ namespace Bot
                         InlineKeyboardButton.WithCallbackData(text: "/change", callbackData: "change"),
                     },
 
-                });
+
+            };
+            
+            InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup(f);
 
             await botClient.SendTextMessageAsync(message.Chat.Id, "Choose inline:",
                    replyMarkup: inlineKeyboard);
